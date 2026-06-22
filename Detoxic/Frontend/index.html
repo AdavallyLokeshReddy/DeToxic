@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detoxic</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="container">
+      <h1>Detoxic — Toxic Comment Detector</h1>
+
+      <section class="card">
+        <h2>Analyze a comment</h2>
+        <textarea id="comment" placeholder="Paste a comment to analyze" rows="6"></textarea>
+        <div class="controls">
+          <div id="counter">0 characters</div>
+          <div>
+            <button id="analyze">Analyze</button>
+            <button id="save" disabled>Save</button>
+          </div>
+        </div>
+        <div id="error" class="error"></div>
+      </section>
+
+      <section id="result" class="card hidden">
+        <h2>Prediction</h2>
+        <ul id="result-list"></ul>
+      </section>
+
+      <section id="history" class="card">
+        <h2>Recent Submissions</h2>
+        <div id="history-list">Loading...</div>
+      </section>
+
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

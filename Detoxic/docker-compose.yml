@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./Backend/App
+      dockerfile: Dockerfile
+    container_name: detoxic-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=sqlite:///./detoxic.db
+      - SECRET_KEY=change-me
+    volumes:
+      - ./Backend/App:/app:ro
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: detoxic-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    volumes:
+      - ./Frontend:/usr/share/nginx/html:ro
